@@ -21,7 +21,7 @@ function setHTMLContent(selector, html) {
 
 // Function to populate header content
 function populateHeader() {
-  setTextContent('.logo', landingCopy.header.logo);
+  setTextContent('.logo-wordmark', landingCopy.header.logo);
   setTextContent('nav a[href="#how-it-works"]', landingCopy.header.nav.howItWorks);
   setTextContent('nav a[href="#faq"]', landingCopy.header.nav.faq);
   setTextContent('.header-cta', landingCopy.header.cta);
