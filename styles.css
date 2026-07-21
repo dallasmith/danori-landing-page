@@ -67,16 +67,16 @@ header {
 
 .logo-mark {
   position: relative;
-  width: 56px;
-  height: 56px;
+  width: 48px;
+  height: 48px;
   flex-shrink: 0;
 }
 
 .logo-wordmark {
-  font-family: var(--font-body);
-  font-weight: 600;
-  font-size: 24px;
-  letter-spacing: -0.01em;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 26px;
+  letter-spacing: -0.04em;
   color: var(--color-ink);
 }
 
@@ -88,7 +88,7 @@ nav {
 
 nav a {
   font-family: var(--font-body);
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 500;
   color: var(--color-text-secondary);
   text-decoration: none;
