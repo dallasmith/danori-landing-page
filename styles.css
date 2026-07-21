@@ -527,3 +527,28 @@ p {
   margin-bottom: 2rem;
   font-family: var(--font-body);
 }
+
+footer {
+  background: #0B1220;
+  color: white;
+  padding: 3rem 0 1rem;
+}
+
+.footer-section p {
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 1rem;
+  font-family: var(--font-body);
+}
+
+.footer-section ul li a {
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-family: var(--font-body);
+}
+
+.footer-bottom p {
+  color: rgba(255, 255, 255, 0.4);
+  margin: 0;
+  font-family: var(--font-body);
+}
