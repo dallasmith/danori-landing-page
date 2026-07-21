@@ -67,15 +67,15 @@ header {
 
 .logo-mark {
   position: relative;
-  width: 40px;
-  height: 40px;
+  width: 56px;
+  height: 56px;
   flex-shrink: 0;
 }
 
 .logo-wordmark {
   font-family: var(--font-body);
   font-weight: 600;
-  font-size: 18px;
+  font-size: 24px;
   letter-spacing: -0.01em;
   color: var(--color-ink);
 }
@@ -177,6 +177,17 @@ p {
   color: rgba(255, 255, 255, 0.82);
   max-width: 560px;
   margin-bottom: 40px;
+}
+
+#problem h2,
+#how-it-works h2,
+#before-after h2,
+#note-from-builder h2,
+#faq h2,
+#final-cta h2 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: -0.03em;
 }
 
 .hero-cta {
@@ -359,7 +370,7 @@ p {
 
 .builder-content p {
   font-family: var(--font-body);
-  font-size: 17px;
+  font-size: 18px;
   font-weight: 400;
   line-height: 1.7;
   color: rgba(255, 255, 255, 0.75);
@@ -968,7 +979,7 @@ p {
 .problem-item h3 {
   font-family: var(--font-display);
   font-weight: 500;
-  font-size: 18px;
+  font-size: 20px;
   letter-spacing: -0.02em;
   color: var(--color-ink);
   margin-bottom: 12px;
@@ -977,7 +988,7 @@ p {
 
 .problem-item p {
   font-family: var(--font-body);
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 400;
   line-height: 1.65;
   color: var(--color-text-secondary);
@@ -1001,7 +1012,7 @@ p {
 
 #how-it-works .section-subtitle {
   font-family: var(--font-body);
-  font-size: 17px;
+  font-size: 18px;
   color: var(--color-text-secondary);
   text-align: center;
   max-width: 560px;
@@ -1039,7 +1050,7 @@ p {
 .step h3 {
   font-family: var(--font-display);
   font-weight: 500;
-  font-size: 18px;
+  font-size: 20px;
   letter-spacing: -0.02em;
   color: var(--color-ink);
   margin-bottom: 12px;
@@ -1047,7 +1058,7 @@ p {
 
 .step p {
   font-family: var(--font-body);
-  font-size: 15px;
+  font-size: 17px;
   color: var(--color-text-secondary);
   line-height: 1.65;
 }
@@ -1188,23 +1199,13 @@ p {
   padding: 0;
 }
 
-.before ul li {
-  font-family: var(--font-body);
-  font-size: 15px;
-  color: var(--color-text-secondary);
-  line-height: 1.6;
-  padding: 10px 0;
-  border-bottom: 1px solid var(--color-border);
-}
-
+.before ul li,
 .after ul li {
   font-family: var(--font-body);
-  font-size: 15px;
-  color: var(--color-ink);
+  font-size: 17px;
   line-height: 1.6;
-  padding: 10px 0;
+  padding: 12px 0;
   border-bottom: 1px solid var(--color-border);
-  font-weight: 500;
 }
 
 .comparison ul li {
@@ -1293,7 +1294,7 @@ p {
 .faq-item h3 {
   font-family: var(--font-display);
   font-weight: 500;
-  font-size: 17px;
+  font-size: 18px;
   letter-spacing: -0.02em;
   color: var(--color-ink);
   margin-bottom: 12px;
@@ -1302,7 +1303,7 @@ p {
 
 .faq-item p {
   font-family: var(--font-body);
-  font-size: 15px;
+  font-size: 17px;
   color: var(--color-text-secondary);
   line-height: 1.65;
 }
@@ -1326,7 +1327,7 @@ p {
 
 #final-cta p {
   font-family: var(--font-body);
-  font-size: 17px;
+  font-size: 18px;
   color: rgba(255, 255, 255, 0.72);
   margin-bottom: 40px;
   line-height: 1.6;
