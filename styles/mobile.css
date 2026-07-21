@@ -1,0 +1,71 @@
+/* styles/mobile.css — PHONE-ONLY (≤767px). Do not modify desktop styles here. */
+
+/* Mobile overrides (≤767px). Desktop untouched because this file only loads on phones. */
+.container { padding-left: 16px; padding-right: 16px; }
+
+/* Hero stacks */
+.hero-container {
+  display: block;
+  padding: 24px 16px; /* was 24px 0 — add side padding on phones */
+  gap: 0;
+}
+
+#hero h1 { font-size: clamp(24px, 6vw, 28px); line-height: 1.2; margin: 0 0 12px; }
+.hero-subtitle { font-size: 16px; line-height: 1.5; margin: 0 0 16px; }
+
+.hero-cta { display: flex; flex-direction: column; gap: 12px; align-items: stretch; }
+.primary-cta { width: 100%; min-height: 44px; font-size: 16px; }
+
+.hero-visual { margin-top: 16px; text-align: center; }
+
+/* Common grids → single column on phones */
+.problem-grid, .features-grid, .conversation-screenshots, .comparison, .footer-content {
+  display: grid; grid-template-columns: 1fr; gap: 16px;
+}
+
+/* Card padding tune-ups (only if these classes exist) */
+.problem-item, .feature, .step, .before, .after, .builder-content, .final-cta { padding: 16px; }
+
+/* Section rhythm */
+#problem, #app-screenshot, #note-from-builder, #how-it-works, #projects-screenshot,
+#text-conversations, #features, #before-after, #cta-section, #faq, #final-cta {
+  padding-top: 32px; padding-bottom: 32px;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
+
+/* Prevent sideways scroll on small screens */
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* Ensure media never exceeds viewport width */
+img, svg, video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Make hero visual strictly fit within the viewport */
+.hero-visual {
+  overflow: hidden; /* clips any slight overflow from images/shadows */
+}
+
+/* Hero image safe sizing for phones — prevent edge cropping */
+.hero-visual img,
+.hero-screenshot {
+  display: block;
+  max-width: 90%;     /* shrink slightly so angled edges/shadows don't clip */
+  height: auto;
+  margin: 8px auto 0; /* center horizontally with a small top gap */
+  object-fit: contain; /* keep proportions within container bounds */
+}
+
+/* Ensure full-width buttons don't overflow due to padding/border */
+.primary-cta {
+  width: 100%;
+  box-sizing: border-box;
+}
