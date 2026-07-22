@@ -132,7 +132,7 @@ That's Danori. Every time you open the app you see the health of every active jo
   },
   footer: {
     danori: {
-      title: "Danori",
+      title: "",
       description: "Dependable.<br><span class=\"danori-blue\">Danori.</span>",
       socialLinks: []
     },
