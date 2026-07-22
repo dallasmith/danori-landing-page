@@ -147,7 +147,7 @@ function populateFinalCta() {
 // Function to populate footer
 function populateFooter() {
   setTextContent('footer .footer-section:nth-child(1) h4', landingCopy.footer.danori.title);
-  setTextContent('footer .footer-section:nth-child(1) p', landingCopy.footer.danori.description);
+  setHTMLContent('footer .footer-section:nth-child(1) p', landingCopy.footer.danori.description);
 
   setTextContent('footer .footer-section:nth-child(2) h4', landingCopy.footer.product.title);
   setTextContent('footer .footer-section:nth-child(3) h4', landingCopy.footer.support.title);
