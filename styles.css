@@ -377,6 +377,36 @@ p {
   border-top: 1px solid #F2F2F7;
 }
 
+#project-screenshot {
+  background: #F2F2F7;
+  padding: 4rem 0;
+  text-align: center;
+}
+
+#projects-screenshot {
+  background: white;
+  padding: 4rem 0;
+  text-align: center;
+}
+
+.screenshot-container {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.app-screenshot-image {
+  max-width: 300px;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.app-screenshot-image:hover {
+  transform: scale(1.02);
+}
+
 /* Before/After */
 #before-after {
   background: white;
