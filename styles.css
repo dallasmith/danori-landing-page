@@ -528,10 +528,49 @@ p {
   font-family: var(--font-body);
 }
 
+#final-cta .primary-cta {
+  background: white;
+  color: var(--color-blue);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+#final-cta .primary-cta:hover {
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
 footer {
-  background: #0B1220;
+  background: #1a1a1a;
   color: white;
   padding: 3rem 0 1rem;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 2rem;
+}
+
+.footer-section:first-child h4 {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  letter-spacing: -0.02em;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 0.5rem;
+}
+
+.footer-section:first-child p {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: -0.01em;
 }
 
 .footer-section p {
