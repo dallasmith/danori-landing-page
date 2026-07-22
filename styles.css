@@ -10,6 +10,7 @@
   --color-surface: #F2F2F7;
   --color-border: #E6E9EF;
   --color-text-secondary: #8E8E93;
+  --color-cta: #F5A623;
   --font-display: 'Space Grotesk', system-ui, sans-serif;
   --font-body: 'Inter Tight', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
@@ -183,10 +184,15 @@ p {
   margin-top: 18px;
 }
 
+.hero-cta .primary-cta {
+  background: #F5A623;
+  color: #0B1220;
+}
+
 .primary-cta {
   display: inline-block;
-  background: white;
-  color: var(--color-blue);
+  background: #F5A623;
+  color: #0B1220;
   border: none;
   padding: 1.4rem 3rem;
   font-size: 1.3rem;
@@ -194,7 +200,7 @@ p {
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 6px 20px rgba(245, 166, 35, 0.3);
   margin-bottom: 1rem;
   text-decoration: none;
   font-family: var(--font-body);
@@ -202,8 +208,8 @@ p {
 
 .primary-cta:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 8px 25px rgba(245, 166, 35, 0.4);
+  background: #E8961A;
 }
 
 /* Override primary CTA outside hero to be blue */
@@ -529,14 +535,13 @@ p {
 }
 
 #final-cta .primary-cta {
-  background: white;
-  color: var(--color-blue);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  background: #F5A623;
+  color: #0B1220;
+  box-shadow: 0 6px 20px rgba(245, 166, 35, 0.3);
 }
 
 #final-cta .primary-cta:hover {
-  background: rgba(255, 255, 255, 0.92);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  background: #E8961A;
 }
 
 footer {
