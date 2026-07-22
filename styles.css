@@ -96,8 +96,8 @@ nav a:hover {
 }
 
 .header-cta {
-  background: var(--color-blue);
-  color: white;
+  background: var(--color-blue) !important;
+  color: white !important;
   border: none;
   padding: 0.5rem 1rem;
   border-radius: 6px;
@@ -109,7 +109,7 @@ nav a:hover {
 }
 
 .header-cta:hover {
-  background: var(--color-blue-accent);
+  background: var(--color-blue-accent) !important;
 }
 
 /* Typography */
