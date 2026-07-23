@@ -3,6 +3,11 @@
 /* Mobile overrides (≤767px). Desktop untouched because this file only loads on phones. */
 .container { padding-left: 16px; padding-right: 16px; }
 
+.header-container {
+  justify-content: space-between;
+  padding: 0.75rem 1.25rem;
+}
+
 nav a:not(.header-cta) {
   display: none;
 }
