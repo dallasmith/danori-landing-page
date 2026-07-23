@@ -140,7 +140,7 @@ h3 {
 p {
   margin-bottom: 1rem;
   font-size: 1.2rem;
-  color: #8E8E93;
+  color: #444444;
   font-family: var(--font-body);
 }
 
@@ -305,7 +305,7 @@ p {
 }
 
 .problem-item p {
-  color: #8E8E93;
+  color: #444444;
   font-family: var(--font-body);
 }
 
@@ -349,7 +349,7 @@ p {
 }
 
 .step p {
-  color: #8E8E93;
+  color: #444444;
   font-family: var(--font-body);
 }
 
@@ -429,7 +429,7 @@ p {
   padding-left: 1.5rem;
   position: relative;
   font-size: 1.2rem;
-  color: #8E8E93;
+  color: #444444;
   font-family: var(--font-body);
 }
 
@@ -524,7 +524,7 @@ p {
 }
 
 .faq-item p {
-  color: #8E8E93;
+  color: #444444;
   font-family: var(--font-body);
 }
 
