@@ -298,23 +298,6 @@ p {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
 }
 
-.problem-icon {
-  width: 56px;
-  height: 56px;
-  margin: 0 auto 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #F2F2F7;
-  border-radius: 12px;
-  color: var(--color-blue);
-}
-
-.problem-icon svg {
-  width: 32px;
-  height: 32px;
-}
-
 .problem-item h3 {
   color: #1a1a1a;
   margin-bottom: 1rem;
