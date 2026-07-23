@@ -14,7 +14,7 @@ export const landingCopy = {
   },
   hero: {
     headline: "Less Phone Time. More Build Time.",
-    subtitleHTML: `Danori doesn't give you more to manage. It manages more for you.<br><br>Open the app and your jobs are already running. You see what's healthy, what needs attention, and what's happening today. A good assistant doesn't bring you problems. It brings you solutions.<br><br>You decide. Danori does the rest.`,
+    subtitleHTML: `A system that handles your operations so you can focus on the build.<br><br>Danori doesn't give you more to manage. It manages more for you.<br><br>Open the app and your jobs are already running. You see what's healthy, what needs attention, and what's happening today. A good assistant doesn't bring you problems. It brings you solutions.<br><br>You decide. Danori does the rest.`,
     cta: { primary: "Get Early Access" },
     trustHTML: `Free to join. Founding members lock in the lowest rate Danori will ever offer.<br>
 <span class="ios-notice">Danori is currently available on iOS only.</span>`
