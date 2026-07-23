@@ -139,7 +139,7 @@ h3 {
 
 p {
   margin-bottom: 1rem;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   color: #8E8E93;
   font-family: var(--font-body);
 }
@@ -428,7 +428,7 @@ p {
   margin: 0.8rem 0;
   padding-left: 1.5rem;
   position: relative;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   color: #8E8E93;
   font-family: var(--font-body);
 }
