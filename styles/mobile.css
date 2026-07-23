@@ -4,22 +4,22 @@
 .container { padding-left: 16px; padding-right: 16px; }
 
 .header-container {
-  padding: 0.75rem 1rem;
+  padding: 0.5rem 1rem;
 }
 
 .logo {
-  gap: 8px;
+  gap: 6px;
   align-items: center;
 }
 
 .logo-mark {
-  width: 40px;
-  height: 40px;
+  width: 32px;
+  height: 32px;
   flex-shrink: 0;
 }
 
 .logo-wordmark {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   white-space: nowrap;
 }
 
@@ -28,9 +28,10 @@ nav a:not(.header-cta) {
 }
 
 .header-cta {
-  padding: 0.5rem 0.85rem;
+  padding: 0.5rem 0.75rem;
   font-size: 0.85rem;
   white-space: nowrap;
+  border-radius: 6px;
 }
 
 /* Hero stacks */
