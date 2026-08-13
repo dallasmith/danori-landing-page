@@ -6,16 +6,122 @@
 .header-container {
   justify-content: space-between;
   padding: 0.75rem 1.25rem;
+  gap: 10px;
 }
 
-nav a:not(.header-cta) {
+.menu-toggle {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  margin: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  flex-shrink: 0;
+  order: 1;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--color-ink);
+  border-radius: 1px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+header.menu-open .menu-toggle span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+header.menu-open .menu-toggle span:nth-child(2) {
+  opacity: 0;
+}
+
+header.menu-open .menu-toggle span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+.logo {
+  order: 2;
+  margin-left: auto;
+  gap: 8px;
+  flex-shrink: 1;
+  min-width: 0;
+}
+
+.logo-mark,
+.logo-mark > div,
+.logo-mark svg {
+  width: 36px !important;
+  height: 36px !important;
+}
+
+.logo-wordmark {
+  font-size: 1.25rem;
+  white-space: nowrap;
+}
+
+nav {
+  order: 3;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+.header-cta {
+  padding: 0.45rem 0.75rem;
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+.nav-links {
   display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  width: 100%;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+  background: #FFFFFF;
+  border-bottom: 1px solid #F2F2F7;
+  box-shadow: 0 10px 24px rgba(11, 18, 32, 0.08);
+  padding: 0.5rem 0 0.75rem;
+  z-index: 101;
+}
+
+header.menu-open .nav-links {
+  display: flex;
+}
+
+.nav-links a {
+  display: block;
+  padding: 0.9rem 1.25rem;
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.nav-links a:hover {
+  color: var(--color-blue);
+  background: #F2F2F7;
 }
 
 /* Hero stacks */
+#hero {
+  padding: 2rem 0;
+}
+
 .hero-container {
   display: block;
-  padding: 24px 16px; /* was 24px 0 — add side padding on phones */
+  padding: 0 16px 24px;
   gap: 0;
 }
 
