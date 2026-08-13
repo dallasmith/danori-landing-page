@@ -28,7 +28,7 @@ export const landingCopy = {
       },
       {
         title: "Your Schedule Is Everywhere. That's the Problem.",
-        description: "Your schedule lives across text threads, calendars, notes, and whatever you can remember. When something changes you update all of them by hand. Danori keeps one schedule that updates itself."
+        description: "Your schedule lives across text threads, calendars, notes, and whatever you can remember. When something changes you update all of them by hand. Danori keeps one schedule, and it updates itself so you're not the one chasing it down every time something shifts."
       },
       {
         title: "The Day Ends. The Mental Checklist Doesn't.",
@@ -48,7 +48,7 @@ export const landingCopy = {
       {
         number: "2",
         title: "Danori Runs the Coordination",
-        description: "Before each task starts your sub gets a confirmation text and replies Y to confirm, N to decline, or R to request a new date. No app, no login, nothing new to learn on their end and reminders go out without you scheduling them."
+        description: "Before each task starts your sub gets a confirmation text and replies Y to confirm, N to decline, or R to request a new date. Subs don't need an app or a login. They just get a text before the job starts, reply to confirm or reschedule, and reminders go out on their own from there."
       },
       {
         number: "3",
@@ -91,7 +91,7 @@ export const landingCopy = {
       "I started as a job site assistant loading materials, sweeping floors, and doing whatever needed doing, and within six months I was asked to run projects. A year later I was managing up to six renovation jobs at a time.",
       "Nobody handed me a system. I inherited the one everyone uses and for a while it worked, but the more jobs I took on the more I realized I wasn't just managing construction. I was tracking everything in my head. Who's confirmed. What's next. What falls apart tomorrow if I don't follow up tonight. The job would end for the day but that checklist never did.",
       "Every tool I tried helped me organize the chaos but none of them did anything about it because they were just another place for the same information to live. I needed something that actually did the work instead of giving me somewhere to put it.",
-      "That's what I built Danori to be. A system that keeps everything moving without you having to hold it all together. If that's the kind of tool you've been looking for, you're exactly who Danori was built for."
+      "I wasn't trying to fix my own day. I looked at how the whole industry handles this and figured most of it could just run itself. That's what I built Danori to be. A system that keeps everything moving without you having to hold it all together. If that's the kind of tool you've been looking for, you're exactly who Danori was built for."
     ],
     signature: {
       name: "Dallas",
