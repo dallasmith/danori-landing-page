@@ -28,7 +28,7 @@ nav a:not(.header-cta) {
 .hero-visual { margin-top: 16px; text-align: center; }
 
 /* Common grids → single column on phones */
-.problem-grid, .features-grid, .conversation-screenshots, .comparison, .footer-content {
+.problem-grid, .features-grid, .conversation-screenshots, .comparison, .footer-content, .pricing-grid {
   display: grid; grid-template-columns: 1fr; gap: 16px;
 }
 

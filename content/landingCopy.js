@@ -8,6 +8,7 @@ export const landingCopy = {
     nav: {
       howItWorks: "How it Works",
       features: "Features",
+      pricing: "Pricing",
       faq: "FAQ"
     },
     cta: "Get Early Access"

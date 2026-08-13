@@ -23,6 +23,7 @@ function setHTMLContent(selector, html) {
 function populateHeader() {
   setTextContent('.logo-wordmark', landingCopy.header.logo);
   setTextContent('nav a[href="#how-it-works"]', landingCopy.header.nav.howItWorks);
+  setTextContent('nav a[href="/pricing"]', landingCopy.header.nav.pricing);
   setTextContent('nav a[href="#faq"]', landingCopy.header.nav.faq);
   setTextContent('.header-cta', landingCopy.header.cta);
 }
