@@ -16,7 +16,7 @@ export const landingCopy = {
     headline: "Less Phone Time. More Build Time.",
     subtitleHTML: `A system that handles your operations so you can focus on the build.<br><br>Danori doesn't give you more to manage. It manages more for you.<br><br>Open the app and your jobs are already running. You see what's healthy, what needs attention, and what's happening today. A good assistant doesn't bring you problems. It brings you solutions.<br><br>You decide. Danori does the rest.`,
     cta: { primary: "Get Early Access" },
-    trustHTML: `Free to join. Founding members lock in the lowest rate Danori will ever offer.<br>
+    trustHTML: `Try it free for 30 days once we're live. Join the list and we'll let you know the moment Danori's ready for you.<br>
 <span class="ios-notice">Danori is currently available on iOS only.</span>`
   },
   problem: {
@@ -58,7 +58,7 @@ export const landingCopy = {
     ],
     cta: {
       primary: "Get Early Access",
-      trustText: "Free to join. Founding members lock in the lowest rate Danori will ever offer."
+      trustText: "Try it free for 30 days once we're live. Join the list and we'll let you know the moment Danori's ready for you."
     }
   },
   beforeAfter: {
