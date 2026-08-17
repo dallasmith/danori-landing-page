@@ -145,7 +145,7 @@ export const landingCopy = {
     support: {
       title: "Support",
       links: [
-        { label: "Contact Us", href: "mailto:support@danoriapp.com" },
+        { label: "Contact Us", href: "/support" },
         { label: "Help Center", href: "#faq" }
       ]
     },
