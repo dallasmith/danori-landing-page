@@ -3,13 +3,57 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Cookie Policy - Danori</title>
+  <title>Checkout Canceled - Danori</title>
   <link rel="icon" type="image/png" href="/images/favicon.png">
   <link rel="apple-touch-icon" href="/images/favicon.png">
-  <meta name="description" content="Danori Cookie Policy — how we use cookies on our website.">
+  <meta name="description" content="Checkout wasn't completed. Nothing has changed — pick this up whenever you're ready.">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="styles/legal.css">
   <link rel="stylesheet" href="styles/mobile.css" media="(max-width: 767px)">
+  <style>
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .checkout-main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      max-width: none;
+      padding: 3rem 2rem 4rem;
+    }
+
+    .checkout-card {
+      max-width: 480px;
+      width: 100%;
+      text-align: center;
+      background: #F2F2F7;
+      border-radius: 12px;
+      padding: 3rem 2.25rem;
+    }
+
+    .checkout-card h1 {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .checkout-card p {
+      margin-bottom: 1.5rem;
+      color: #444444;
+    }
+
+    .checkout-card .header-cta {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+    }
+  </style>
 </head>
 <body>
 
@@ -44,29 +88,12 @@
     </div>
   </header>
 
-  <main class="legal-content">
-    <h1>Danori – Cookie Policy</h1>
-    <p class="updated">Last updated: July 23, 2026</p>
-
-    <p>We use cookies to enhance your experience on our website.</p>
-
-    <h2>What Are Cookies?</h2>
-    <p>Cookies are small files stored in your browser to help us:</p>
-    <ul>
-      <li>Understand how people use our site</li>
-      <li>Improve performance</li>
-      <li>Process payments (via Stripe)</li>
-    </ul>
-
-    <h2>What Cookies We Use</h2>
-    <ul>
-      <li><strong>Essential cookies:</strong> for basic site functionality</li>
-      <li><strong>Analytics cookies:</strong> to help us improve the user experience</li>
-      <li><strong>Payment cookies:</strong> required by third-party processors like Stripe</li>
-    </ul>
-
-    <h2>Managing Cookies</h2>
-    <p>You can disable cookies in your browser. This may affect site performance.</p>
+  <main class="legal-content checkout-main">
+    <div class="checkout-card">
+      <h1>No Worries.</h1>
+      <p>You didn't complete checkout, and nothing's changed on your end. Pick this up whenever you're ready.</p>
+      <a href="/pricing" class="header-cta">Back to Pricing</a>
+    </div>
   </main>
 
   <footer>
