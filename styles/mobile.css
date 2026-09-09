@@ -129,6 +129,8 @@ header.menu-open .nav-links {
 .hero-subtitle { font-size: 16px; line-height: 1.5; margin: 0 0 16px; }
 
 .hero-cta { display: flex; flex-direction: column; gap: 12px; align-items: stretch; }
+.hero-cta-row { display: block; }
+.hero-qr { display: none; }
 .primary-cta { width: 100%; min-height: 44px; font-size: 16px; }
 
 .hero-visual { margin-top: 16px; text-align: center; }

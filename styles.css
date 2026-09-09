@@ -194,6 +194,44 @@ p {
   margin-top: 18px;
 }
 
+.hero-cta-row {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.hero-cta-row .primary-cta {
+  margin-bottom: 0;
+}
+
+.hero-qr {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.hero-qr img {
+  width: 72px;
+  height: 72px;
+  border-radius: 6px;
+  background: #FFFFFF;
+  padding: 4px;
+  display: block;
+  flex-shrink: 0;
+}
+
+.hero-qr-label {
+  margin: 0;
+  max-width: 7.5rem;
+  font-size: 0.75rem;
+  line-height: 1.35;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.72);
+  font-family: var(--font-body);
+}
+
 .hero-cta .primary-cta {
   background: #F5A623;
   color: white;
@@ -619,8 +657,29 @@ footer {
   font-family: var(--font-body);
 }
 
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
 .footer-bottom p {
   color: rgba(255, 255, 255, 0.4);
   margin: 0;
   font-family: var(--font-body);
+}
+
+.footer-appstore-badge {
+  display: inline-flex;
+  align-items: center;
+  line-height: 0;
+  flex-shrink: 0;
+}
+
+.footer-appstore-badge img {
+  height: 28px;
+  width: auto;
+  display: block;
 }

@@ -11,13 +11,13 @@ export const landingCopy = {
       pricing: "Pricing",
       faq: "FAQ"
     },
-    cta: "Get Early Access"
+    cta: "Download on iPhone"
   },
   hero: {
     headline: "Less Phone Time. More Build Time.",
     subtitleHTML: `A system that handles your operations so you can focus on the build.<br><br>Danori doesn't give you more to manage. It manages more for you.<br><br>Open the app and your jobs are already running. You see what's healthy, what needs attention, and what's happening today. A good assistant doesn't bring you problems. It brings you solutions.<br><br>You decide. Danori does the rest.`,
-    cta: { primary: "Get Early Access" },
-    trustHTML: `Try it free for 30 days once we're live. Join the list and we'll let you know the moment Danori's ready for you.<br>
+    cta: { primary: "Download on iPhone" },
+    trustHTML: `Download free and try it for 30 days. No card required.<br>
 <span class="ios-notice">Danori is currently available on iOS only.</span>`
   },
   problem: {
@@ -58,8 +58,8 @@ export const landingCopy = {
       }
     ],
     cta: {
-      primary: "Get Early Access",
-      trustText: "Try it free for 30 days once we're live. Join the list and we'll let you know the moment Danori's ready for you."
+      primary: "Download on iPhone",
+      trustText: "Download free and try it for 30 days. No card required."
     }
   },
   beforeAfter: {
@@ -111,8 +111,8 @@ export const landingCopy = {
         answer: "Honestly, barely at all. When you add a sub to Danori they get a one-time intro message letting them know you're using Danori for scheduling. From there they just get a text before each job starts, they reply Y to confirm, N to decline, or R to request a new date, and that's it. No app to download, no account to create, no new process to learn. It works on any phone, any carrier, anywhere. Your name is on every message so it never feels like spam. For them it just feels like a text from you."
       },
       {
-        question: "What happens after I sign up and when do I get access?",
-        answer: "Once you sign up you'll hear from us directly with next steps, and since we're bringing builders in personally during beta you'll have support from day one."
+        question: "How do I get started?",
+        answer: "Download Danori from the App Store, create your account, and you're in. Try it free for 30 days, no card required, and you can have your first project running in minutes."
       },
       {
         question: "Is Danori only for GCs?",
@@ -127,7 +127,7 @@ export const landingCopy = {
   finalCta: {
     headline: "Run Every Job Like You Have a Team Behind You.",
     description: "Join the builders who decided to take control instead of letting the job run them.",
-    cta: "Get Early Access"
+    cta: "Download on iPhone"
   },
   footer: {
     danori: {
