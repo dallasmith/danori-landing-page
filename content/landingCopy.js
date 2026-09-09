@@ -11,12 +11,12 @@ export const landingCopy = {
       pricing: "Pricing",
       faq: "FAQ"
     },
-    cta: "Download on iPhone"
+    cta: "Get the App"
   },
   hero: {
     headline: "Less Phone Time. More Build Time.",
     subtitleHTML: `A system that handles your operations so you can focus on the build.<br><br>Danori doesn't give you more to manage. It manages more for you.<br><br>Open the app and your jobs are already running. You see what's healthy, what needs attention, and what's happening today. A good assistant doesn't bring you problems. It brings you solutions.<br><br>You decide. Danori does the rest.`,
-    cta: { primary: "Download on iPhone" },
+    cta: { primary: "Get the App" },
     trustHTML: `Download free and try it for 30 days. No card required.<br>
 <span class="ios-notice">Danori is currently available on iOS only.</span>`
   },
@@ -58,7 +58,7 @@ export const landingCopy = {
       }
     ],
     cta: {
-      primary: "Download on iPhone",
+      primary: "Get the App",
       trustText: "Download free and try it for 30 days. No card required."
     }
   },
@@ -127,7 +127,7 @@ export const landingCopy = {
   finalCta: {
     headline: "Run Every Job Like You Have a Team Behind You.",
     description: "Join the builders who decided to take control instead of letting the job run them.",
-    cta: "Download on iPhone"
+    cta: "Get the App"
   },
   footer: {
     danori: {

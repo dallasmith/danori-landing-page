@@ -224,8 +224,8 @@ p {
 
 .hero-qr-label {
   margin: 0;
-  max-width: 7.5rem;
-  font-size: 0.75rem;
+  max-width: 9rem;
+  font-size: 0.9rem;
   line-height: 1.35;
   font-weight: 500;
   color: rgba(255, 255, 255, 0.72);
@@ -679,7 +679,7 @@ footer {
 }
 
 .footer-appstore-badge img {
-  height: 28px;
+  height: 40px;
   width: auto;
   display: block;
 }
