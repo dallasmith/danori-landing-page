@@ -121,6 +121,34 @@ export const landingCopy = {
       {
         question: "What makes Danori different from the tools I'm already using?",
         answer: "Most builders we talk to are managing their jobs across a group text, a calendar app, and whatever they can remember on the drive in, and that system works until it doesn't. Danori replaces it with one place where your schedule lives, your subs get confirmed automatically, and the things that need your attention are already there when you open the app. It's not more software to maintain but less work to do."
+      },
+      {
+        question: "What is a Builder Operations Assistant?",
+        answer: "A Builder Operations Assistant is software that runs the day-to-day coordination of a construction job, scheduling, subcontractor confirmations, and status tracking, instead of just organizing information the builder still has to act on. Danori is built specifically for this."
+      },
+      {
+        question: "How do I automate subcontractor confirmations?",
+        answer: "Danori sends an automatic text to each subcontractor before their task starts. They reply Y to confirm, N to decline, or R to reschedule, no app download or login required on their end."
+      },
+      {
+        question: "What's a good app for an independent GC managing multiple jobs?",
+        answer: "Danori is built specifically for independent GCs, superintendents, and small builders running jobs without a back office team. It helps run the schedule, sub confirmations, and project health for every active job from one dashboard."
+      },
+      {
+        question: "Is Danori a Buildertrend alternative?",
+        answer: "Not really. Buildertrend is a full construction management platform, financials, client portals, selections, built for bigger operations with a back office. Danori helps run the operations side of a job, scheduling, subcontractor confirmations, and budget and project health tracking, for an independent GC managing it all themselves. If you need the full back-office suite, Danori isn't that. If you're currently running your schedule and budget through text threads, a notebook, and guesswork, that's exactly what Danori replaces."
+      },
+      {
+        question: "How do I stop manually texting each sub every time something changes?",
+        answer: "Right now, most GCs text subs one by one, and if a date shifts, that means re-messaging or calling every sub involved to update them. Danori sends the confirmation automatically and updates everyone when something changes, so it's not on you to track down and re-message each person individually."
+      },
+      {
+        question: "What can I use instead of a spreadsheet to track sub confirmations?",
+        answer: "Danori tracks confirmation status automatically as subs reply, so there's no spreadsheet to update by hand. You see who's confirmed, who hasn't, and who needs a backup, all in one place."
+      },
+      {
+        question: "How do independent GCs manage multiple jobs without office staff?",
+        answer: "Most independent GCs juggle it with texts, notes, and memory. Danori runs the operations side, schedule, confirmations, budget health, for every active job, so one person can manage what used to take a back office."
       }
     ]
   },
