@@ -42,18 +42,17 @@
     return '$' + n.toLocaleString('en-US');
   }
 
-  var gaugeGen = 0;
-
   function countUp(el, target, duration) {
+    el._gaugeGen = (el._gaugeGen || 0) + 1;
+    var gen = el._gaugeGen;
     if (reduce || duration <= 0) {
       el.textContent = formatMoney(target);
       return;
     }
-    var gen = gaugeGen;
     var start = 0;
     var t0 = null;
     function step(ts) {
-      if (gen !== gaugeGen) return;
+      if (gen !== el._gaugeGen) return;
       if (!t0) t0 = ts;
       var p = Math.min(1, (ts - t0) / duration);
       var eased = 1 - Math.pow(1 - p, 3);
@@ -63,40 +62,40 @@
     requestAnimationFrame(step);
   }
 
-  function runGauges() {
-    document.querySelectorAll('[data-count]').forEach(function (el) {
-      countUp(el, Number(el.getAttribute('data-count')), 1100);
-    });
-    document.querySelectorAll('.gauge-fill').forEach(function (el) {
-      el.classList.add('is-on');
-    });
+  function runGauge(card) {
+    var el = card.querySelector('[data-count]');
+    var fill = card.querySelector('.gauge-fill');
+    if (el) countUp(el, Number(el.getAttribute('data-count')), reduce ? 0 : 1100);
+    if (fill) fill.classList.add('is-on');
   }
 
-  function resetGauges() {
-    gaugeGen += 1;
-    document.querySelectorAll('[data-count]').forEach(function (el) {
+  function resetGauge(card) {
+    var el = card.querySelector('[data-count]');
+    var fill = card.querySelector('.gauge-fill');
+    if (el) {
+      el._gaugeGen = (el._gaugeGen || 0) + 1;
       el.textContent = formatMoney(0);
-    });
-    document.querySelectorAll('.gauge-fill').forEach(function (el) {
-      el.style.transition = 'none';
-      el.classList.remove('is-on');
-      void el.offsetWidth;
-      el.style.transition = '';
-    });
+    }
+    if (fill) {
+      fill.style.transition = 'none';
+      fill.classList.remove('is-on');
+      void fill.offsetWidth;
+      fill.style.transition = '';
+    }
   }
 
-  var money = document.getElementById('money');
-  if (money) {
-    if (!reduce && 'IntersectionObserver' in window) {
+  var gaugeCards = document.querySelectorAll('.gauge');
+  if (gaugeCards.length) {
+    if ('IntersectionObserver' in window) {
       var gio = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
-          if (entry.isIntersecting) runGauges();
-          else resetGauges();
+          if (entry.isIntersecting) runGauge(entry.target);
+          else resetGauge(entry.target);
         });
-      }, { threshold: 0.35 });
-      gio.observe(money);
+      }, { threshold: 0.1 });
+      gaugeCards.forEach(function (card) { gio.observe(card); });
     } else {
-      runGauges();
+      gaugeCards.forEach(runGauge);
     }
   }
 
