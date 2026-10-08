@@ -452,6 +452,10 @@ ul {
   color: var(--color-ink);
 }
 
+.pillar-navy .feature-list li {
+  color: #F5F7FA;
+}
+
 .feature-list li::before {
   content: "✓";
   position: absolute;
