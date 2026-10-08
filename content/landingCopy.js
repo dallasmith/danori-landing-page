@@ -6,7 +6,7 @@ export const landingCopy = {
   header: {
     logo: "Danori",
     nav: {
-      howItWorks: "How it Works",
+      howItWorks: "What it does",
       pricing: "Pricing",
       faq: "FAQ"
     },

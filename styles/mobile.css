@@ -139,7 +139,7 @@ header.menu-open .nav-links {
   grid-template-columns: 1fr;
 }
 
-#problem, .pillar, #faq, #final-cta, #subs, #not-another, #money-proof {
+#problem, .pillar, #faq, #final-cta, #subs, #not-another {
   padding-top: 32px;
   padding-bottom: 32px;
 }
