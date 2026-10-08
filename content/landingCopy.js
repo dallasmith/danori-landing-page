@@ -23,7 +23,7 @@ export const landingCopy = {
     items: [
       {
         question: "Will my subs actually use this?",
-        answer: "They don't have to download or log into anything. They get a text, they reply Y to confirm, N to decline, or R to request a new date. That's it."
+        answer: "They don't have to download or log into anything. They get a text, they reply Y to confirm, N to decline, or R to reschedule. That's it."
       },
       {
         question: "I've tried construction software before and it didn't stick.",

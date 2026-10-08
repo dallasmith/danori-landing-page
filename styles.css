@@ -563,7 +563,7 @@ ul {
   display: flex;
   flex-direction: column;
   gap: 0.65rem;
-  min-height: 168px;
+  min-height: 220px;
 }
 
 .sms-bubble {
