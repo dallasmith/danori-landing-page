@@ -1,4 +1,4 @@
-/* styles/mobile.css — PHONE-ONLY (≤767px). */
+/* styles/mobile.css - PHONE-ONLY (max 767px). */
 
 .container { padding-left: 16px; padding-right: 16px; }
 
@@ -139,7 +139,7 @@ header.menu-open .nav-links {
   grid-template-columns: 1fr;
 }
 
-#problem, .pillar, #faq, #final-cta, #subs, #not-another {
+#problem, .pillar, #faq, #final-cta, #subs, #not-another, #money-proof {
   padding-top: 32px;
   padding-bottom: 32px;
 }
