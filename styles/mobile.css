@@ -1,6 +1,5 @@
-/* styles/mobile.css — PHONE-ONLY (≤767px). Do not modify desktop styles here. */
+/* styles/mobile.css — PHONE-ONLY (≤767px). */
 
-/* Mobile overrides (≤767px). Desktop untouched because this file only loads on phones. */
 .container { padding-left: 16px; padding-right: 16px; }
 
 .header-container {
@@ -30,7 +29,7 @@
   display: block;
   width: 20px;
   height: 2px;
-  background: var(--color-ink);
+  background: var(--color-navy);
   border-radius: 1px;
   transition: transform 0.2s ease, opacity 0.2s ease;
 }
@@ -74,8 +73,8 @@ nav {
 }
 
 .header-cta {
-  padding: 0.45rem 0.75rem;
-  font-size: 0.85rem;
+  padding: 0.45rem 0.7rem;
+  font-size: 0.8rem;
   white-space: nowrap;
 }
 
@@ -89,9 +88,9 @@ nav {
   flex-direction: column;
   align-items: stretch;
   gap: 0;
-  background: #FFFFFF;
-  border-bottom: 1px solid #F2F2F7;
-  box-shadow: 0 10px 24px rgba(11, 18, 32, 0.08);
+  background: var(--color-card);
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: var(--shadow-hover);
   padding: 0.5rem 0 0.75rem;
   z-index: 101;
 }
@@ -104,85 +103,59 @@ header.menu-open .nav-links {
   display: block;
   padding: 0.9rem 1.25rem;
   color: var(--color-ink);
-  font-family: var(--font-body);
   font-size: 1rem;
   font-weight: 500;
 }
 
 .nav-links a:hover {
   color: var(--color-blue);
-  background: #F2F2F7;
+  background: var(--color-page);
 }
 
-/* Hero stacks */
-#hero {
-  padding: 2rem 0;
-}
+#hero { padding: 2rem 0 1.5rem; }
 
 .hero-container {
   display: block;
-  padding: 0 16px 24px;
+  padding: 0 16px 16px;
   gap: 0;
 }
 
-#hero h1 { font-size: clamp(24px, 6vw, 28px); line-height: 1.2; margin: 0 0 12px; }
+#hero h1 { font-size: clamp(24px, 6vw, 30px); line-height: 1.2; margin: 0 0 12px; }
 .hero-subtitle { font-size: 16px; line-height: 1.5; margin: 0 0 16px; }
 
 .hero-cta { display: flex; flex-direction: column; gap: 12px; align-items: stretch; }
 .hero-cta-row { display: block; }
 .hero-qr { display: none; }
-.primary-cta { width: 100%; min-height: 44px; font-size: 16px; }
+.primary-cta { width: 100%; min-height: 44px; font-size: 16px; box-sizing: border-box; }
 
 .hero-visual { margin-top: 16px; text-align: center; }
 
-/* Common grids → single column on phones */
-.problem-grid, .features-grid, .conversation-screenshots, .comparison, .footer-content, .pricing-grid {
-  display: grid; grid-template-columns: 1fr; gap: 16px;
+.split,
+.placeholder-grid,
+.visual-row,
+.gauges,
+.footer-content,
+.pricing-grid {
+  grid-template-columns: 1fr;
 }
 
-/* Card padding tune-ups (only if these classes exist) */
-.problem-item, .feature, .step, .before, .after, .builder-content, .final-cta { padding: 16px; }
-
-/* Section rhythm */
-#problem, #app-screenshot, #note-from-builder, #how-it-works, #projects-screenshot,
-#text-conversations, #features, #before-after, #cta-section, #faq, #final-cta {
-  padding-top: 32px; padding-bottom: 32px;
+#problem, .pillar, #faq, #final-cta, #subs, #not-another {
+  padding-top: 32px;
+  padding-bottom: 32px;
 }
 
-/* Respect reduced motion */
+.proof { font-size: 1.2rem; }
+
 @media (prefers-reduced-motion: reduce) {
   * { animation: none !important; transition: none !important; }
 }
 
-/* Prevent sideways scroll on small screens */
 html, body {
   overflow-x: hidden;
   width: 100%;
 }
 
-/* Ensure media never exceeds viewport width */
 img, svg, video {
   max-width: 100%;
   height: auto;
-}
-
-/* Make hero visual strictly fit within the viewport */
-.hero-visual {
-  overflow: hidden; /* clips any slight overflow from images/shadows */
-}
-
-/* Hero image safe sizing for phones — prevent edge cropping */
-.hero-visual img,
-.hero-screenshot {
-  display: block;
-  max-width: 90%;     /* shrink slightly so angled edges/shadows don't clip */
-  height: auto;
-  margin: 8px auto 0; /* center horizontally with a small top gap */
-  object-fit: contain; /* keep proportions within container bounds */
-}
-
-/* Ensure full-width buttons don't overflow due to padding/border */
-.primary-cta {
-  width: 100%;
-  box-sizing: border-box;
 }

@@ -6,59 +6,12 @@
   <title>Checkout Canceled - Danori</title>
   <link rel="icon" type="image/png" href="/images/favicon.png">
   <link rel="apple-touch-icon" href="/images/favicon.png">
-  <meta name="description" content="Checkout wasn't completed. Nothing has changed — pick this up whenever you're ready.">
+  <meta name="description" content="Checkout wasn't completed. Nothing has changed. Pick this up whenever you're ready.">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="styles/legal.css">
   <link rel="stylesheet" href="styles/mobile.css" media="(max-width: 767px)">
-  <style>
-    body {
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
-
-    header,
-    footer {
-      flex-shrink: 0;
-    }
-
-    .checkout-main {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      max-width: none;
-      min-height: calc(100vh - 81px - 16rem);
-      padding: 2rem;
-    }
-
-    .checkout-card {
-      max-width: 480px;
-      width: 100%;
-      text-align: center;
-      background: #F2F2F7;
-      border-radius: 12px;
-      padding: 3rem 2.25rem;
-    }
-
-    .checkout-card h1 {
-      text-align: center;
-      margin-bottom: 1rem;
-    }
-
-    .checkout-card p {
-      margin-bottom: 1.5rem;
-      color: #444444;
-    }
-
-    .checkout-card .header-cta {
-      display: inline-block;
-      padding: 0.75rem 1.5rem;
-    }
-  </style>
 </head>
-<body>
+<body class="checkout-page">
 
   <header>
     <div class="header-container">
@@ -82,20 +35,20 @@
       </a>
       <nav>
         <div class="nav-links" id="mobile-menu">
-          <a href="/#how-it-works">How it Works</a>
+          <a href="/#jobs">How it Works</a>
           <a href="/pricing">Pricing</a>
           <a href="/#faq">FAQ</a>
         </div>
-        <a href="https://apps.apple.com/app/id6761148350" class="header-cta">Get the App</a>
+        <a href="https://apps.apple.com/app/id6761148350" class="header-cta">Try Danori Free</a>
       </nav>
     </div>
   </header>
 
-  <main class="legal-content checkout-main">
+  <main class="checkout-main">
     <div class="checkout-card">
-      <h1>No Worries.</h1>
+      <h1>No worries.</h1>
       <p>You didn't complete checkout, and nothing's changed on your end. Pick this up whenever you're ready.</p>
-      <a href="/pricing" class="header-cta">Back to Pricing</a>
+      <a href="/pricing" class="primary-cta">Back to pricing</a>
     </div>
   </main>
 
@@ -109,7 +62,7 @@
         <div class="footer-section">
           <h4>Product</h4>
           <ul>
-            <li><a href="/#how-it-works">How it Works</a></li>
+            <li><a href="/#jobs">How it Works</a></li>
             <li><a href="/pricing">Pricing</a></li>
             <li><a href="/#faq">FAQ</a></li>
           </ul>
@@ -137,6 +90,7 @@
   </footer>
 
 <script src="js/mobileNav.js" defer></script>
+<script src="js/landing.js" defer></script>
 <script>
 window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
 </script>
