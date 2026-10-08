@@ -14,10 +14,7 @@
   if (!reduce && 'IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          io.unobserve(entry.target);
-        }
+        entry.target.classList.toggle('is-visible', entry.isIntersecting);
       });
     }, { threshold: 0.12, rootMargin: '0px 0px -32px 0px' });
     reveals.forEach(function (el) { io.observe(el); });
@@ -45,14 +42,18 @@
     return '$' + n.toLocaleString('en-US');
   }
 
+  var gaugeGen = 0;
+
   function countUp(el, target, duration) {
     if (reduce || duration <= 0) {
       el.textContent = formatMoney(target);
       return;
     }
+    var gen = gaugeGen;
     var start = 0;
     var t0 = null;
     function step(ts) {
+      if (gen !== gaugeGen) return;
       if (!t0) t0 = ts;
       var p = Math.min(1, (ts - t0) / duration);
       var eased = 1 - Math.pow(1 - p, 3);
@@ -71,15 +72,26 @@
     });
   }
 
+  function resetGauges() {
+    gaugeGen += 1;
+    document.querySelectorAll('[data-count]').forEach(function (el) {
+      el.textContent = formatMoney(0);
+    });
+    document.querySelectorAll('.gauge-fill').forEach(function (el) {
+      el.style.transition = 'none';
+      el.classList.remove('is-on');
+      void el.offsetWidth;
+      el.style.transition = '';
+    });
+  }
+
   var money = document.getElementById('money');
   if (money) {
     if (!reduce && 'IntersectionObserver' in window) {
       var gio = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            runGauges();
-            gio.disconnect();
-          }
+          if (entry.isIntersecting) runGauges();
+          else resetGauges();
         });
       }, { threshold: 0.35 });
       gio.observe(money);
@@ -88,31 +100,69 @@
     }
   }
 
+  var smsTimers = [];
+  var smsRunning = false;
+  var smsIndex = 0;
+
+  function clearSmsTimers() {
+    smsTimers.forEach(clearTimeout);
+    smsTimers = [];
+  }
+
+  function stopSmsThread() {
+    smsRunning = false;
+    clearSmsTimers();
+    var phone = document.getElementById('sms-thread');
+    if (!phone) return;
+    var inbound = phone.querySelector('.sms-in');
+    var outbound = phone.querySelector('.sms-out');
+    var typing = phone.querySelector('.sms-typing');
+    if (inbound) inbound.classList.remove('is-on');
+    if (outbound) outbound.classList.remove('is-on');
+    if (typing) typing.classList.remove('is-on');
+  }
+
   function runSmsThread() {
     var phone = document.getElementById('sms-thread');
     if (!phone) return;
     var inbound = phone.querySelector('.sms-in');
     var outbound = phone.querySelector('.sms-out');
+    var typing = phone.querySelector('.sms-typing');
     if (!inbound || !outbound) return;
 
     var replies = ['Y', 'N', 'R'];
-    var i = 0;
 
     if (reduce) {
       outbound.textContent = 'Y';
       inbound.classList.add('is-on');
       outbound.classList.add('is-on');
+      if (typing) typing.classList.remove('is-on');
       return;
     }
 
+    stopSmsThread();
+    smsRunning = true;
+    smsIndex = 0;
+
     function cycle() {
+      if (!smsRunning) return;
       inbound.classList.remove('is-on');
       outbound.classList.remove('is-on');
-      outbound.textContent = replies[i % replies.length];
-      i += 1;
-      setTimeout(function () { inbound.classList.add('is-on'); }, 400);
-      setTimeout(function () { outbound.classList.add('is-on'); }, 1800);
-      setTimeout(cycle, 5600);
+      if (typing) typing.classList.remove('is-on');
+      outbound.textContent = replies[smsIndex % replies.length];
+      smsIndex += 1;
+      smsTimers.push(setTimeout(function () {
+        if (smsRunning) inbound.classList.add('is-on');
+      }, 400));
+      smsTimers.push(setTimeout(function () {
+        if (smsRunning && typing) typing.classList.add('is-on');
+      }, 1800));
+      smsTimers.push(setTimeout(function () {
+        if (!smsRunning) return;
+        if (typing) typing.classList.remove('is-on');
+        outbound.classList.add('is-on');
+      }, 2800));
+      smsTimers.push(setTimeout(cycle, 6600));
     }
 
     cycle();
@@ -123,15 +173,63 @@
     if (!reduce && 'IntersectionObserver' in window) {
       var sio = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            runSmsThread();
-            sio.disconnect();
-          }
+          if (entry.isIntersecting) runSmsThread();
+          else stopSmsThread();
         });
       }, { threshold: 0.35 });
       sio.observe(subs);
     } else {
       runSmsThread();
     }
+  }
+
+  var stickyBar = document.getElementById('mobile-cta-bar');
+  var hero = document.getElementById('hero');
+  var finalCta = document.getElementById('final-cta');
+  if (stickyBar && hero && 'IntersectionObserver' in window) {
+    var heroInView = true;
+    var ctaInView = false;
+    function syncStickyCta() {
+      var show = !heroInView && !ctaInView;
+      stickyBar.classList.toggle('is-visible', show);
+      stickyBar.setAttribute('aria-hidden', show ? 'false' : 'true');
+      var link = stickyBar.querySelector('a');
+      if (link) link.tabIndex = show ? 0 : -1;
+    }
+    var cio = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.target === hero) heroInView = entry.isIntersecting;
+        if (entry.target === finalCta) ctaInView = entry.isIntersecting;
+      });
+      syncStickyCta();
+    }, { threshold: 0.12, rootMargin: '0px 0px -32px 0px' });
+    cio.observe(hero);
+    if (finalCta) cio.observe(finalCta);
+  }
+
+  var toggle = document.querySelector('.pricing-toggle');
+  if (toggle) {
+    function setPeriod(period) {
+      var annual = period === 'annual';
+      toggle.querySelectorAll('button').forEach(function (btn) {
+        var on = btn.getAttribute('data-period') === period;
+        btn.classList.toggle('is-active', on);
+        btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+      });
+      document.querySelectorAll('.pricing-amount').forEach(function (el) {
+        el.textContent = annual ? el.getAttribute('data-annual') : el.getAttribute('data-monthly');
+      });
+      document.querySelectorAll('.pricing-period').forEach(function (el) {
+        el.textContent = annual ? '/year' : '/month';
+      });
+      document.querySelectorAll('.pricing-save').forEach(function (el) {
+        el.hidden = !annual;
+      });
+    }
+    toggle.querySelectorAll('button').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        setPeriod(btn.getAttribute('data-period'));
+      });
+    });
   }
 })();

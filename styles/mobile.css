@@ -144,6 +144,39 @@ header.menu-open .nav-links {
   padding-bottom: 32px;
 }
 
+body:has(#mobile-cta-bar) #faq {
+  padding-bottom: 96px;
+}
+
+.mobile-cta-bar {
+  display: block;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99;
+  padding: 10px 16px calc(10px + env(safe-area-inset-bottom, 0px));
+  background: var(--color-card);
+  border-top: 1px solid var(--color-border);
+  box-shadow: 0 -4px 16px rgba(27, 42, 65, 0.08);
+  opacity: 0;
+  transform: translateY(8px);
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.mobile-cta-bar.is-visible {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+
+.mobile-cta-bar .primary-cta {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
 .proof { font-size: 1.2rem; }
 
 @media (prefers-reduced-motion: reduce) {

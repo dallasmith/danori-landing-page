@@ -84,20 +84,24 @@
       <h1>Two tiers. Same Danori.</h1>
       <p class="section-subtitle">Every plan gets the full app. The only difference is how many jobs you're running at once.</p>
       <p class="pricing-trial">Free for 30 days. No credit card required to start.</p>
+      <div class="pricing-toggle" role="group" aria-label="Billing period">
+        <button type="button" class="is-active" data-period="monthly" aria-pressed="true">Monthly</button>
+        <button type="button" data-period="annual" aria-pressed="false">Annual</button>
+      </div>
     </div>
 
     <div class="pricing-grid reveal">
       <div class="pricing-tier">
         <h3>Small Operator</h3>
-        <p class="pricing-price">$99<span>/month</span></p>
-        <p class="pricing-annual">$990/year (two months free)</p>
+        <p class="pricing-price"><span class="pricing-amount" data-monthly="$99" data-annual="$990">$99</span><span class="pricing-period">/month</span></p>
+        <p class="pricing-save" hidden>2 months free</p>
         <p>Up to 5 active projects</p>
         <a href="https://apps.apple.com/app/id6761148350" class="primary-cta">Try Danori Free</a>
       </div>
       <div class="pricing-tier">
         <h3>Large Operator</h3>
-        <p class="pricing-price">$149<span>/month</span></p>
-        <p class="pricing-annual">$1,490/year (two months free)</p>
+        <p class="pricing-price"><span class="pricing-amount" data-monthly="$149" data-annual="$1,490">$149</span><span class="pricing-period">/month</span></p>
+        <p class="pricing-save" hidden>2 months free</p>
         <p>Unlimited active projects</p>
         <a href="https://apps.apple.com/app/id6761148350" class="primary-cta">Try Danori Free</a>
       </div>
