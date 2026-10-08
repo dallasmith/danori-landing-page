@@ -176,6 +176,7 @@ body.checkout-page footer {
   box-shadow: var(--shadow);
   border-radius: var(--radius);
   padding: 3rem 2.25rem;
+  transition: box-shadow 0.18s ease;
 }
 
 .checkout-card h1 {

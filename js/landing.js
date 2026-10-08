@@ -87,4 +87,51 @@
       runGauges();
     }
   }
+
+  function runSmsThread() {
+    var phone = document.getElementById('sms-thread');
+    if (!phone) return;
+    var inbound = phone.querySelector('.sms-in');
+    var outbound = phone.querySelector('.sms-out');
+    if (!inbound || !outbound) return;
+
+    var replies = ['Y', 'N', 'R'];
+    var i = 0;
+
+    if (reduce) {
+      outbound.textContent = 'Y';
+      inbound.classList.add('is-on');
+      outbound.classList.add('is-on');
+      return;
+    }
+
+    function cycle() {
+      inbound.classList.remove('is-on');
+      outbound.classList.remove('is-on');
+      outbound.textContent = replies[i % replies.length];
+      i += 1;
+      setTimeout(function () { inbound.classList.add('is-on'); }, 400);
+      setTimeout(function () { outbound.classList.add('is-on'); }, 1800);
+      setTimeout(cycle, 5600);
+    }
+
+    cycle();
+  }
+
+  var subs = document.getElementById('subs');
+  if (subs) {
+    if (!reduce && 'IntersectionObserver' in window) {
+      var sio = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            runSmsThread();
+            sio.disconnect();
+          }
+        });
+      }, { threshold: 0.35 });
+      sio.observe(subs);
+    } else {
+      runSmsThread();
+    }
+  }
 })();
