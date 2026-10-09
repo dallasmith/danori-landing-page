@@ -31,11 +31,11 @@ export const landingCopy = {
       },
       {
         question: "I already have a spreadsheet. Why switch?",
-        answer: "A spreadsheet holds your numbers. It doesn't text your subs, track your profit while the job runs, or give the homeowner a link. Danori does. Keep the spreadsheet for anything else you use it for."
+        answer: "A spreadsheet holds your numbers. It doesn't text your subs, track your profit while the job runs, or give the homeowner a page with progress and photos. Danori does. Keep the spreadsheet for anything else you use it for."
       },
       {
         question: "How long does setup take?",
-        answer: "Add your subs from your phone contacts and tag their trades. Start your first job from a template (Remodel, Flip, or Addition) or one of your own. Your usual job lengths and subs fill in on their own. You set it up once. Your subs never have to."
+        answer: "Add your subs from your phone contacts and tag their trades. Start your first job from a template (Remodel, Flip, or Addition), one of your own, or from scratch. Your usual job lengths and subs fill in on their own. You set it up once. Your subs never have to."
       },
       {
         question: "What does it cost?",
