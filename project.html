@@ -55,6 +55,27 @@
     .empty { color: var(--muted); font-size: 15px; padding: 12px 0; margin: 0; }
     .footer { text-align: center; font-size: 13px; color: var(--muted); margin-top: 32px; }
     .message { text-align: center; padding: 60px 8px; }
+    .pct { margin: 14px 0 0; font-size: 15px; color: var(--panel-muted); }
+    .pct span { font-size: 28px; font-weight: 600; color: #F5F7FA; margin-right: 4px; }
+    .bar { height: 8px; background: rgba(255, 255, 255, 0.14); border-radius: 999px; margin-top: 8px; overflow: hidden; }
+    .fill { height: 100%; width: 0; background: #4C8DFF; border-radius: 999px; }
+    .phases { padding: 14px 16px 2px; }
+    .phase { display: flex; gap: 12px; }
+    .phase .rail { display: flex; flex-direction: column; align-items: center; width: 20px; flex: none; }
+    .phase .dot { width: 18px; height: 18px; border-radius: 50%; flex: none; display: flex; align-items: center; justify-content: center; font-size: 11px; box-sizing: border-box; }
+    .phase.done .dot { background: var(--line); color: var(--muted); }
+    .phase.current .dot { background: var(--blue); box-shadow: 0 0 0 4px rgba(1, 94, 244, 0.18); }
+    .phase.upcoming .dot { background: var(--card); border: 2px solid #C9C2B6; }
+    .phase .line { width: 2px; flex: 1; min-height: 14px; background: var(--line); }
+    .phase .name { padding: 0 0 14px; font-size: 15px; }
+    .phase.done .name { color: var(--muted); }
+    .phase.current .name { font-weight: 600; }
+    .phase .now { display: block; font-size: 13px; font-weight: 500; color: var(--blue); }
+    .weekLabel { font-size: 13px; color: var(--muted); margin: 6px 4px 6px; }
+    .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; margin-bottom: 10px; }
+    .grid a { position: relative; display: block; aspect-ratio: 1; border-radius: 10px; overflow: hidden; background: var(--line); }
+    .grid img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .grid .tag { position: absolute; left: 6px; bottom: 6px; font-size: 11px; color: #FFFFFF; background: rgba(0, 0, 0, 0.45); padding: 1px 6px; border-radius: 4px; }
     .message p { color: var(--muted); }
     [hidden] { display: none !important; }
   </style>
@@ -90,14 +111,28 @@
       <section class="panel" aria-live="polite">
         <p class="state" id="state"></p>
         <p class="detail" id="detail"></p>
+        <div id="progress" hidden>
+          <p class="pct"><span id="pctNum"></span>complete</p>
+          <div class="bar"><div class="fill" id="pctFill"></div></div>
+        </div>
       </section>
 
       <p class="label">This week</p>
       <div class="card" id="thisWeek"></div>
 
-      <div id="nextSection" hidden>
-        <p class="label">Next up</p>
-        <div class="card" id="nextUp"></div>
+      <div id="comingSection" hidden>
+        <p class="label">Coming up</p>
+        <div class="card" id="comingUp"></div>
+      </div>
+
+      <div id="phasesSection" hidden>
+        <p class="label">Project phases</p>
+        <div class="card phases" id="phases"></div>
+      </div>
+
+      <div id="photosSection" hidden>
+        <p class="label">Photos</p>
+        <div id="photos"></div>
       </div>
 
       <div id="changesSection" hidden>
@@ -126,6 +161,13 @@
         var p = String(ymd).slice(0, 10).split("-");
         var d = new Date(Number(p[0]), Number(p[1]) - 1, Number(p[2]));
         return d.toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric" });
+      }
+
+      // "2026-10-05" -> "Oct 5"
+      function shortDate(ymd) {
+        var p = String(ymd).slice(0, 10).split("-");
+        var d = new Date(Number(p[0]), Number(p[1]) - 1, Number(p[2]));
+        return d.toLocaleDateString("en-US", { month: "short", day: "numeric" });
       }
 
       function money(cents) {
@@ -189,6 +231,14 @@
               " · Expected to finish " + niceDate(data.finishDate);
           }
 
+          // Percent complete (never "behind")
+          if (typeof data.percentComplete === "number" && data.status !== "not_started") {
+            var pct = Math.max(0, Math.min(100, Math.round(data.percentComplete)));
+            el("pctNum").textContent = pct + "% ";
+            el("pctFill").style.width = pct + "%";
+            el("progress").hidden = false;
+          }
+
           // This week
           var week = el("thisWeek");
           if (!data.thisWeek || data.thisWeek.length === 0) {
@@ -206,12 +256,85 @@
             });
           }
 
-          // Next up: exact date if confirmed, "Scheduled for" if not
-          if (data.nextUp) {
-            el("nextSection").hidden = false;
-            el("nextUp").appendChild(row("", data.nextUp.label,
-              (data.nextUp.confirmed ? "Starts " : "Scheduled for ") + niceDate(data.nextUp.date),
-              data.nextUp.confirmed ? "ok" : "sched"));
+          // Coming up: exact date if confirmed, "Scheduled for" if not
+          var coming = Array.isArray(data.comingUp) ? data.comingUp : (data.nextUp ? [data.nextUp] : []);
+          if (coming.length > 0) {
+            el("comingSection").hidden = false;
+            coming.forEach(function (t) {
+              el("comingUp").appendChild(row("", t.label,
+                (t.confirmed ? "Starts " : "Scheduled for ") + niceDate(t.date),
+                t.confirmed ? "ok" : "sched"));
+            });
+          }
+
+          // Phase timeline: done grayed with a check, current in blue, upcoming open
+          var phases = Array.isArray(data.phases) ? data.phases : [];
+          if (phases.length > 0) {
+            el("phasesSection").hidden = false;
+            phases.forEach(function (p, i) {
+              var state = p.state === "done" ? "done" : (p.state === "current" ? "current" : "upcoming");
+              var item = document.createElement("div");
+              item.className = "phase " + state;
+              var rail = document.createElement("div");
+              rail.className = "rail";
+              var dot = document.createElement("span");
+              dot.className = "dot";
+              if (state === "done") dot.textContent = "✓";
+              rail.appendChild(dot);
+              if (i < phases.length - 1) {
+                var line = document.createElement("span");
+                line.className = "line";
+                rail.appendChild(line);
+              }
+              var name = document.createElement("div");
+              name.className = "name";
+              name.textContent = p.name;
+              if (state === "current") {
+                var now = document.createElement("span");
+                now.className = "now";
+                now.textContent = "Happening now";
+                name.appendChild(now);
+              }
+              item.appendChild(rail);
+              item.appendChild(name);
+              el("phases").appendChild(item);
+            });
+          }
+
+          // Photos the builder chose to share, newest week first. Tap to open full size.
+          var photos = Array.isArray(data.photos) ? data.photos : [];
+          if (photos.length > 0) {
+            el("photosSection").hidden = false;
+            var lastWeek = null, grid = null;
+            photos.forEach(function (ph) {
+              if (!/^https:\/\//.test(String(ph.url))) return;
+              if (ph.weekOf !== lastWeek || !grid) {
+                lastWeek = ph.weekOf;
+                var wl = document.createElement("p");
+                wl.className = "weekLabel";
+                wl.textContent = "Week of " + shortDate(ph.weekOf);
+                el("photos").appendChild(wl);
+                grid = document.createElement("div");
+                grid.className = "grid";
+                el("photos").appendChild(grid);
+              }
+              var a = document.createElement("a");
+              a.href = ph.url;
+              a.target = "_blank";
+              a.rel = "noopener noreferrer";
+              var img = document.createElement("img");
+              img.src = ph.url;
+              img.loading = "lazy";
+              img.alt = "Project photo" + (ph.label ? ": " + ph.label : "");
+              a.appendChild(img);
+              if (ph.label) {
+                var tag = document.createElement("span");
+                tag.className = "tag";
+                tag.textContent = ph.label;
+                a.appendChild(tag);
+              }
+              grid.appendChild(a);
+            });
           }
 
           // Approved changes
