@@ -39,7 +39,7 @@
     /* The site's logo is built at 48x48. Scale it to fit. */
     .brand .logo-mark > div { transform: scale(0.6667); transform-origin: top left; }
     .brand span { font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 700; font-size: 18px; }
-    .from { font-size: 14px; color: var(--muted); margin: 18px 0 2px; }
+    .from { font-family: 'Space Grotesk', system-ui, sans-serif; font-size: 22px; font-weight: 700; color: var(--ink); margin: 8px 0 14px; padding-bottom: 14px; border-bottom: 1px solid var(--line); line-height: 1.2; }
     h1 { font-size: 26px; font-weight: 600; margin: 0; line-height: 1.2; }
     .address { font-size: 15px; color: var(--muted); margin: 2px 0 18px; }
     .panel { background: var(--panel); color: #F5F7FA; border-radius: 16px; padding: 18px; }
@@ -82,7 +82,7 @@
 </head>
 <body>
   <main class="wrap">
-    <a class="brand" href="/" aria-label="Danori">
+    <a class="brand" href="/" aria-label="Danori" hidden>
       <div class="logo-mark">
           <div style="position:relative;width:48px;height:48px">
             <svg viewBox="0 0 100 100" width="48" height="48" style="display:block">
@@ -211,7 +211,7 @@
         .then(function (data) {
           var builder = data.builderName || "your builder";
           document.title = (data.projectName || "Project") + " updates";
-          el("from").textContent = "Project updates from " + builder;
+          el("from").textContent = data.builderName || "Project updates";
           el("projectName").textContent = data.projectName || "Your project";
           el("address").textContent = data.address || "";
 
@@ -345,7 +345,7 @@
             });
           }
 
-          el("footer").textContent = "Shared by " + builder + " using Danori";
+          el("footer").textContent = "Shared using Danori";
           el("loading").hidden = true;
           el("content").hidden = false;
         })
