@@ -5,3 +5,5 @@ Disallow: /p/
 User-agent: facebookexternalhit
 Allow: /
 Disallow: /p/
+
+Sitemap: https://danoriapp.com/sitemap.xml
