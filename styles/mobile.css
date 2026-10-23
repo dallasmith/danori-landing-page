@@ -112,6 +112,36 @@ header.menu-open .nav-links {
   background: var(--color-page);
 }
 
+.nav-menu {
+  position: static;
+}
+
+.nav-toggle {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 44px;
+  padding: 0.9rem 1.25rem;
+  text-align: left;
+  font-size: 1rem;
+  color: var(--color-ink);
+}
+
+.nav-dropdown {
+  position: static;
+  min-width: 0;
+  width: 100%;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0 0 0.35rem;
+  background: transparent;
+}
+
+.nav-dropdown a {
+  padding-left: 2rem;
+}
+
 #hero { padding: 2rem 0 1.5rem; }
 
 .hero-container {
