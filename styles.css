@@ -866,8 +866,10 @@ footer {
 }
 
 .footer-section:first-child p {
+  font-family: var(--font-logo);
   font-size: 1.75rem;
-  font-weight: 600;
+  font-weight: 700;
+  letter-spacing: -0.03em;
   color: white;
   line-height: 1.2;
   margin-bottom: 0;
