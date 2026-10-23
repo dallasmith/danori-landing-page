@@ -118,6 +118,18 @@
   margin-top: 0.25rem;
 }
 
+.compare-page a.faq-item {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.compare-page a.faq-item .compare-read {
+  color: var(--color-blue);
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
 @media (max-width: 767px) {
   .compare-page {
     padding-top: 2rem;
