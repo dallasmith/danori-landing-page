@@ -92,7 +92,7 @@
 .compare-table thead th {
   border-top: none;
   font-weight: 600;
-  color: #FFFFFF;
+  color: var(--color-white);
   background: var(--color-navy);
 }
 
