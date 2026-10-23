@@ -92,8 +92,8 @@
 .compare-table thead th {
   border-top: none;
   font-weight: 600;
-  color: var(--color-navy);
-  background: var(--color-page);
+  color: #FFFFFF;
+  background: var(--color-navy);
 }
 
 .compare-table tbody th {
