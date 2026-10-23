@@ -42,6 +42,16 @@
   margin-bottom: 0.5rem;
 }
 
+.compare-page ol {
+  max-width: 40rem;
+  margin: 0 0 1.5rem;
+  padding-left: 1.5rem;
+}
+
+.compare-page ol li {
+  list-style: decimal;
+}
+
 .compare-table-wrap {
   width: 100%;
   max-width: 100%;
