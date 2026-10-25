@@ -54,6 +54,7 @@
     .review-button { display: inline-block; background: var(--panel); color: #fff; text-decoration: none; font-weight: 600; font-size: 15px; padding: 12px 22px; border-radius: 10px; }
     .review-button:active { opacity: 0.85; }
     #review .card { padding: 16px; }
+    #review { margin-top: 26px; }
     .row { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--line); font-size: 15px; }
     .row:last-child { border-bottom: none; }
     .row .when { font-weight: 600; margin-right: 6px; }
@@ -133,7 +134,7 @@
         </div>
       </section>
 
-      <p class="label">This week</p>
+      <p class="label" id="thisWeekLabel">This week</p>
       <div class="card" id="thisWeek"></div>
 
       <div id="comingSection" hidden>
@@ -269,7 +270,10 @@
 
           // This week
           var week = el("thisWeek");
-          if (!data.thisWeek || data.thisWeek.length === 0) {
+          if (data.status === "complete") {
+            el("thisWeekLabel").hidden = true;
+            week.hidden = true;
+          } else if (!data.thisWeek || data.thisWeek.length === 0) {
             var none = document.createElement("p");
             none.className = "empty";
             none.textContent = "Nothing scheduled this week.";
@@ -286,7 +290,7 @@
 
           // Coming up: exact date if confirmed, "Scheduled for" if not
           var coming = Array.isArray(data.comingUp) ? data.comingUp : (data.nextUp ? [data.nextUp] : []);
-          if (coming.length > 0) {
+          if (coming.length > 0 && data.status !== "complete") {
             el("comingSection").hidden = false;
             coming.forEach(function (t) {
               el("comingUp").appendChild(row("", t.label,
