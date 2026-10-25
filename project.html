@@ -49,6 +49,10 @@
     .panel .detail { font-size: 15px; color: var(--panel-muted); margin: 4px 0 0; }
     .label { font-size: 13px; font-weight: 600; color: #3B4048; margin: 26px 4px 8px; }
     .card { background: var(--card); border-radius: 14px; box-shadow: var(--shadow); padding: 4px 16px; }
+    .review-title { font-weight: 600; font-size: 17px; color: var(--ink); margin: 0 0 4px; }
+    .review-text { font-size: 15px; color: var(--muted); margin: 0 0 14px; }
+    .review-button { display: inline-block; background: var(--panel); color: #fff; text-decoration: none; font-weight: 600; font-size: 15px; padding: 12px 22px; border-radius: 10px; }
+    .review-button:active { opacity: 0.85; }
     .row { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--line); font-size: 15px; }
     .row:last-child { border-bottom: none; }
     .row .when { font-weight: 600; margin-right: 6px; }
@@ -117,6 +121,14 @@
         <div id="progress" hidden>
           <p class="pct"><span id="pctNum"></span>complete</p>
           <div class="bar"><div class="fill" id="pctFill"></div></div>
+        </div>
+      </section>
+
+      <section id="review" hidden>
+        <div class="card">
+          <p class="review-title">Happy with how it turned out?</p>
+          <p class="review-text" id="review-text"></p>
+          <a id="review-link" class="review-button" href="#" target="_blank" rel="noopener noreferrer">Leave a review</a>
         </div>
       </section>
 
@@ -221,6 +233,11 @@
             logo.alt = (data.builderName || "Builder") + " logo";
             logo.src = data.logoUrl;
             logo.hidden = false;
+          }
+          if (data.reviewUrl && /^https:\/\//i.test(data.reviewUrl)) {
+            el("review-text").textContent = "A review helps a small business like " + (data.builderName || "ours") + ".";
+            el("review-link").href = data.reviewUrl;
+            el("review").hidden = false;
           }
           el("projectName").textContent = data.projectName || "Your project";
           el("address").textContent = data.address || "";
