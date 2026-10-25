@@ -40,6 +40,8 @@
     .brand .logo-mark > div { transform: scale(0.6667); transform-origin: top left; }
     .brand span { font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 700; font-size: 18px; }
     .from { font-family: 'Space Grotesk', system-ui, sans-serif; font-size: 22px; font-weight: 700; color: var(--ink); margin: 8px 0 14px; padding-bottom: 14px; border-bottom: 1px solid var(--line); line-height: 1.2; }
+    .builder-logo { display: block; max-height: 40px; max-width: 180px; width: auto; height: auto; object-fit: contain; margin: 0 0 8px 0; }
+    .builder-logo[hidden] { display: none; }
     h1 { font-size: 26px; font-weight: 600; margin: 0; line-height: 1.2; }
     .address { font-size: 15px; color: var(--muted); margin: 2px 0 18px; }
     .panel { background: var(--panel); color: #F5F7FA; border-radius: 16px; padding: 18px; }
@@ -104,6 +106,7 @@
     </div>
 
     <div id="content" hidden>
+      <img id="logo" class="builder-logo" alt="" hidden>
       <p class="from" id="from"></p>
       <h1 id="projectName"></h1>
       <p class="address" id="address"></p>
@@ -212,6 +215,13 @@
           var builder = data.builderName || "your builder";
           document.title = (data.projectName || "Project") + " updates";
           el("from").textContent = data.builderName || "Project updates";
+          var logo = el("logo");
+          if (data.logoUrl && /^https:\/\//.test(data.logoUrl)) {
+            logo.onerror = function () { logo.hidden = true; };
+            logo.alt = (data.builderName || "Builder") + " logo";
+            logo.src = data.logoUrl;
+            logo.hidden = false;
+          }
           el("projectName").textContent = data.projectName || "Your project";
           el("address").textContent = data.address || "";
 
