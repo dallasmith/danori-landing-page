@@ -338,6 +338,15 @@ ul {
   align-items: center;
 }
 
+.hero-eyebrow {
+  margin: 0 0 0.75rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
 .hero-content h1 {
   color: var(--color-navy);
   font-size: clamp(2.1rem, 4vw, 3.1rem);
