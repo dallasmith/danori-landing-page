@@ -146,6 +146,14 @@ header .logo {
   margin-bottom: 1rem;
 }
 
+.pricing-copy ol {
+  padding-left: 1.25rem;
+}
+
+.pricing-copy ol li + li {
+  margin-top: 0.5rem;
+}
+
 .pricing-content #faq {
   padding: 3.5rem 0 0;
   max-width: 720px;
