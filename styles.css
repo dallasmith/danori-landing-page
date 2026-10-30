@@ -333,9 +333,15 @@ ul {
   margin: 0 auto;
   padding: 0 2rem;
   display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
+  grid-template-columns: minmax(0, 1fr) 340px;
   gap: 3rem;
   align-items: center;
+}
+
+@media (max-width: 919px) {
+  .hero-container {
+    grid-template-columns: 1fr;
+  }
 }
 
 .hero-eyebrow {
@@ -351,9 +357,13 @@ ul {
   display: block;
 }
 
+.hero-line + .hero-line {
+  color: var(--color-blue);
+}
+
 .hero-content h1 {
   color: var(--color-navy);
-  font-size: clamp(2rem, 2.8vw, 2.2rem);
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
   line-height: 1.12;
 }
 
