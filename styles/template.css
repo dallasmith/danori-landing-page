@@ -9,19 +9,13 @@
   font-weight: 600;
 }
 
-/* Temporary until the Schedule tab screenshot arrives */
-.template-shot-placeholder {
+.template-shot {
+  display: block;
+  width: 100%;
   max-width: 40rem;
-  aspect-ratio: 16 / 9;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 1rem;
+  height: auto;
   margin: 0 0 1rem;
-  border: 2px dashed var(--color-blue);
+  border: 1px solid var(--color-border);
   border-radius: var(--radius);
-  color: var(--color-blue);
-  font-weight: 600;
-  background: var(--color-card);
+  box-shadow: var(--shadow);
 }
