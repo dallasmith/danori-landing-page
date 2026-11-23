@@ -1,0 +1,27 @@
+/* Loaded by the free template pages under /templates/. */
+
+.template-download {
+  margin: 1.25rem 0 1.75rem;
+}
+
+.template-download a {
+  color: var(--color-blue);
+  font-weight: 600;
+}
+
+/* Temporary until the Schedule tab screenshot arrives */
+.template-shot-placeholder {
+  max-width: 40rem;
+  aspect-ratio: 16 / 9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+  margin: 0 0 1rem;
+  border: 2px dashed var(--color-blue);
+  border-radius: var(--radius);
+  color: var(--color-blue);
+  font-weight: 600;
+  background: var(--color-card);
+}
