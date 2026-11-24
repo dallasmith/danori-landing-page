@@ -152,16 +152,20 @@ header.is-scrolled .logo-wordmark {
 }
 
 .nav-label {
-  margin: 0.55rem 1rem 0.15rem;
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
+  margin: 0.6rem 0 0.2rem;
+  padding: 0.75rem 1rem 0;
+  border-top: 1px solid var(--color-border);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--color-muted);
+  color: var(--color-blue);
 }
 
 .nav-label:first-child {
-  margin-top: 0.2rem;
+  margin-top: 0;
+  padding-top: 0.2rem;
+  border-top: none;
 }
 
 .nav-dropdown a {
