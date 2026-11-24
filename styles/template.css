@@ -153,3 +153,7 @@
     grid-template-columns: 1fr;
   }
 }
+
+.template-related + .template-related {
+  margin-top: -1.75rem;
+}
