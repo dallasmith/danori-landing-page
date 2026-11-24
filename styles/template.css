@@ -157,3 +157,11 @@
 .template-related + .template-related {
   margin-top: -1.75rem;
 }
+
+.template-shot-tall {
+  max-width: 26rem;
+}
+
+#faq .compare-note {
+  margin-top: 1rem;
+}
